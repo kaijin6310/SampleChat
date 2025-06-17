@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link th:href="@{/css/login.css}" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規登録</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="signup-container">
+    <h1>アカウント新規登録</h1>
+    <form th:action="@{create}" method="post" th:object="${createAccountForm}" class="signup-form">
+        <div class="form-group">
+            <label for="accountCode">アカウントコード</label>
+            <input type="text" id="accountCode"  th:field="*{accountCode}" placeholder="アカウントコードを入力" required/>
+        </div>
+        <div class="form-group">
+            <label for="username">ユーザー名</label>
+            <input type="text" id="username"
+                   th:field="*{username}" placeholder="ユーザー名を入力" required>
+        </div>
+        <div class="form-group">
+            <label for="password">パスワード</label>
+            <input type="password" id="password"
+                   th:field="*{password}" placeholder="パスワードを入力" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">パスワード確認</label>
+            <input type="password" id="confirm-password" th:field="*{passwordConf}" placeholder="パスワードを再入力" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="login-button" value="登録">
+        </div>
+    </form>
+    <div class="form-footer">
+        <p>すでにアカウントをお持ちですか？
+            <a th:href="@{/login}">ログイン</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
