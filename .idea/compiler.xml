@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <option name="doma.dao.subpackage" value="impl" />
+        <option name="doma.dao.suffix" value="Impl" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.36/5a30490a6e14977d97d9c73c924c1f1b5311ea95/lombok-1.18.36.jar" />
+          <entry name="$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/org.seasar.doma/doma-processor/2.58.0/6e743f4260fe71b44f1aeb4b038d2e3d48abe174/doma-processor-2.58.0.jar" />
+          <entry name="$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/org.seasar.doma/doma-core/2.58.0/24102defbdd401251198981f1109f59cc0f68283/doma-core-2.58.0.jar" />
+        </processorPath>
+        <module name="PlayRoom.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="23" />
+  </component>
+</project>

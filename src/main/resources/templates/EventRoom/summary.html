@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayRoom</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <div class="user-info">
+        <div class="user-icon" th:text="${icon}"></div>
+        <div class="user-display-name" th:text="${name}"></div>
+    </div>
+
+    <div class="common-function">
+        <div class="setting"><a th:href="@{/userSettings/}">設定</a></div>
+        <div class="logout"><a th:href="@{/login}">ログアウト</a></div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>メニュー</h2>
+        <ul>
+            <li><a th:href="@{/permanentRoom/}">固定部屋</a></li>
+            <li><a th:href="@{/freeRoom/}">雑談部屋</a></li>
+            <li><a th:href="@{/eventRoom/}">イベント部屋</a></li>
+        </ul>
+        <ul>
+            <li><a th:href="@{/help/}">ヘルプ</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h3>イベント部屋</h3>
+
+    </div>
+</div>
+
+<div class="footer">
+</div>
+</body>
+</html>

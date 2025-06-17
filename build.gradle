@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '3.4.2'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.domaframework.doma.compile' version '2.0.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.seasar.doma:doma-processor:2.58.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.seasar.doma.boot:doma-spring-boot-starter:2.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.seasar.doma:doma-core:2.58.0'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.postgresql:postgresql'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    compileOnly 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+//    implementation 'org.springframework.boot:spring-boot-starter-batch'
+//    implementation 'org.springframework.boot:spring-boot-starter-graphql'
+//    implementation 'org.springframework.security:spring-security-config:6.3.5'
+//    implementation 'org.flywaydb:flyway-core'
+//    implementation 'org.flywaydb:flyway-database-postgresql'
+//    testImplementation 'org.springframework:spring-webflux'
+//    testImplementation 'org.springframework.batch:spring-batch-test'
+//    testImplementation 'org.springframework.graphql:spring-graphql-test'
+//    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+compileJava {
+    options.compilerArgs = ['-Adoma.dao.subpackage=impl', '-Adoma.dao.suffix=Impl']
+}
+

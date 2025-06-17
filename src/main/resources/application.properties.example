@@ -1,0 +1,10 @@
+## cp src/main/resources/application.properties.example src/main/resources/application.properties
+spring.application.name=PlayRoom
+spring.datasource.url=jdbc:postgresql://localhost:5432/playroom?currentSchema=playroom
+spring.jpa.database=POSTGRESQL
+spring.datasource.username=postgres
+spring.datasource.password=Admin
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.show-sql=true
+spring.messages.basename=messages/messages
+spring.messages.encoding=UTF-8

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人設定</title>
+    <link th:href="@{/css/editForm.css}" rel="stylesheet">
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="header">
+    <div class="user-info">
+        <div class="user-icon" th:text="${icon}"></div>
+        <div class="user-display-name" th:text="${name}"></div>
+    </div>
+
+    <div class="common-function">
+        <div class="setting"><a th:href="@{/userSettings/}">設定</a></div>
+        <div class="logout"><a th:href="@{/login}">ログアウト</a></div>
+    </div>
+
+</div>
+<div class="container">
+    <h2>プロフィール</h2>
+    <div id="message" style="color: green;"></div>
+    <form class="ajax-form" th:object="${userSettings}" th:action="@{update}" method="post"
+          data-message-target="#message">
+        <div class="form-group">
+            <label for="accountCode">アカウントコード</label>
+            <div><label id="accountCode" th:text="*{accountCode}"></label></div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">ユーザー名</label>
+            <div><input type="text" id="name" placeholder="名前を入力" th:field="*{username}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">性別</label>
+            <div><input type="text" id="gender" th:field="*{gender}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="selfIntroduction">自己紹介</label>
+            <div><textarea id="selfIntroduction" rows="3" placeholder="自己紹介を入力"
+                           th:field="*{selfIntroduction}"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthday">誕生日</label>
+            <div><input type="date" id="birthday" th:field="*{birthday}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="location">居住地</label>
+            <div><input type="text" id="location" placeholder="例: 東京, 日本" th:field="*{residence}"></div>
+        </div>
+        <div class="form-group">
+            <label for="profileImage">プロフィール画像</label>
+            <div><input type="file" id="profileImage"></div>
+        </div>
+        <div class="form-group">
+            <label for="coverImage">カバー画像</label>
+            <div><input type="file" id="coverImage"></div>
+        </div>
+    <div class="form-footer">
+        <input type="submit" class="submit-button" value="保存">
+        <div class="setting"><a th:href="@{/userSettings/back}">戻る</a></div>
+    </div>
+    </form>
+
+</div>
+<div class="footer">
+</div>
+<!-- AjaxのJSを読み込む -->
+<script th:src="@{/js/ajaxFormHandler.js}"></script>
+</body>
+</html>
